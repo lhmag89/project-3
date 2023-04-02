@@ -1,0 +1,14 @@
+html,
+body,
+#map {
+  height: 100%;
+  padding: 100;
+  margin: 100;
+}
+/* <img src="./Larger_title.jpg"/>
+html {
+height: 100%;
+} */
+body {
+background-image: linear-gradient(#ADD8E6, rgb(255, 255, 255));
+}
