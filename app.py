@@ -15,6 +15,16 @@ def return_data():
         social_df.append(create_poloy)
     return jsonify(social_df)
 
+# Points the to the directions of the data source
+@app.route('/data_table')
+def other_data(): 
+    results=engine.execute('select * from data').all()
+    data=[]
+    for each_result in results: 
+        data.append(list(each_result))
+    return jsonify(data)
+
+
 
 # Call's upon the the HTLM file
 @app.route('/')
