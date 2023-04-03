@@ -2,8 +2,8 @@ d3.json('http://localhost:5000/data').then(function(data){
 	
 // Starting point. The center of California
 	var myMap=L.map("map", {
-	    center: [37.166111, -119.449444],
-	    zoom: 20,
+	    center: [37.595794, -121.889489],
+	    zoom: 15,
 	})
 
 //grabs out tiles
