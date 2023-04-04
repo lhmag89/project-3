@@ -1,5 +1,5 @@
 # Alameda Analysis
-##Water Shortage Vulnerability Scores for California
+## Water Shortage Vulnerability Scores for California
 
 ### Building an interactive webpage to provide data visualizations and analysis relating to 'social vulnerability' in Alameda County, Ca. 
 
@@ -71,6 +71,9 @@ Back End & Visualizations
 > - Our scatterplot compared th eSocial Vulnerability and Median Household Income
 
 ### Step 9: Create a Bubblechart
+
+## Analysis
+> - From the scatter plot and observations we were able to deduce that there is a strong inversely proportionate relationship between median household income and social vulnerability. Meaning that the higher the total household income, typically yielded the lower suscptibility to climate induced issues like wate rshortgages. This was somewhat anticipated as those with financial affluence can generally allocate more resources for development and improvemnt of infrastructure. Some areas were annomalies to this conclusion In several "GeoId's we noticed that the income did NOT relate to the vulnerability. This could be attributed to tourist destinations. 
 
 ## Software Used:
 
