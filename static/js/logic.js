@@ -2,10 +2,11 @@ d3.json('/data_table').then(function(data1){
 	// Get subject ID's and populate the dropdown
     
     for (let i=0; i<data1.length; i++){
-        let dropdownList = d3.select("#selDataset");
+        let dropdownListx = d3.select("#selDatasetx");
+		let dropdownListy = d3.select("#selDatasety");
 		let geoID=data1[i][7];
-		dropdownList.append("option").text(geoID);
-		console.log(geoID);
+		dropdownListx.append("option").text(geoID);
+		dropdownListy.append("option").text(geoID);
         };
  
 });   
@@ -39,8 +40,6 @@ d3.json('http://localhost:5000/data').then(function(data){
 		d3.json('/data_table').then(function(data1){
 		let vulScore = data1[i][1];
 		let tractColor = getColor(vulScore);
-		console.log(tractColor);
-		console.log(vulScore);
 
 //Adds the ploygons to the map. 
 		L.polygon(change_order_of_cords, {color: tractColor}).bindPopup(`<h3>GEOID: ${data1[i][7]}</h3><h5>Tract: ${data1[i][8]}</h5><hr><p>Social Vulnerability Score: ${data1[i][1]}</p>
