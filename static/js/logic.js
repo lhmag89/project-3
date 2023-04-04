@@ -13,7 +13,7 @@ d3.json('http://localhost:5000/data').then(function(data){
 	
 // Starting point. The center of California
 	var myMap=L.map("map", {
-	    center: [37.6017, -121.7195],
+	    center: [37.595794, -121.889489],
 	    zoom: 10,
 	});
 
@@ -133,4 +133,3 @@ d3.json('/data_table').then(function(data1){
 	console.log(error);
 	
 });   
-

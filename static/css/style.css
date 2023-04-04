@@ -12,3 +12,15 @@ height: 100%;
 body {
 background-image: linear-gradient(#ADD8E6, rgb(255, 255, 255));
 }
+.legend {
+  line-height: 18px;
+  color: #555;
+  background-color: white;
+}
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.75;
+}
