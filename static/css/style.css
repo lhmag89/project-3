@@ -24,3 +24,6 @@ background-image: linear-gradient(#ADD8E6, rgb(255, 255, 255));
   margin-right: 8px;
   opacity: 0.75;
 }
+
+canvas { background-color : #eee;
+}

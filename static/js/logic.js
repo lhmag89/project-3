@@ -79,6 +79,34 @@ d3.json('http://localhost:5000/data').then(function(data){
 	legend.addTo(myMap);
 });
 
+
+
+var options = {
+  type: 'bubble',
+  data: {
+    datasets: [
+      {
+        label: 'Water Vulnerability Score',
+        data: [
+          {
+            x: 3,
+            y: 7,
+            r: 40
+          }
+        ],
+        backgroundColor:"#ff6384",
+        hoverBackgroundColor: "#ff6384"
+      }
+      ]
+  }
+}
+
+var ctx = document.getElementById('chartJSContainer').getContext('2d');
+new Chart(ctx, options);
+
+
+
+
 d3.json('/data_table').then(function(data1){
 	var x = [];
 	var y = [];
@@ -131,4 +159,42 @@ d3.json('/data_table').then(function(data1){
 }).catch(function(error){
 	console.log(error);
 	
+var optionsTwo = {
+  type: 'bar',
+  data: {
+    //labels: ["Label1", "Label2"],
+    labels: ["the labels"],
+    datasets: [{
+      data: [45000],
+      label: "Label 1",
+      backgroundColor: "#3e95cd",
+
+    }, {
+      data: [40000],
+      label: "Label 2",
+      backgroundColor: "#8e5ea2",
+
+    }, ]
+  },
+  options: {
+
+    legend: {
+      display: true,
+      position: "bottom",
+      labels: {
+        fontColor: 'rgb(0, 0, 0)'
+      }
+    },
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    }
+  }
+}
+var ctxOne = document.getElementById('bar-chart').getContext('2d');
+new Chart(ctxOne, optionsTwo);
+
 });   
