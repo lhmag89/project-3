@@ -26,6 +26,7 @@ def other_data():
 
 
 
+
 # Call's upon the the HTLM file
 @app.route('/')
 def home(): 
