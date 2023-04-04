@@ -79,3 +79,57 @@ d3.json('http://localhost:5000/data').then(function(data){
 
 	legend.addTo(myMap);
 });
+
+d3.json('/data_table').then(function(data1){
+	var x = [];
+	var y = [];
+	var text = [];
+	for (let i=0; i<data1.length; i++){
+		let vulScore = data1[i][1];
+   		let meanIncome = data1[i][2];
+		let hover = `GEOID: ${data1[i][7]}`;
+		x.push(
+			meanIncome
+		);	
+		y.push(
+			vulScore
+		);
+		console.log(vulScore, meanIncome);
+		text.push(
+			hover
+		);
+	
+	};
+
+	var dataScatter = [{
+		x: x,
+		y: y,
+		mode: 'markers',
+		type: 'scatter',
+		text: text
+	  }];
+
+	var layout ={
+		title: 'Scatter Plot',
+		xaxis: {
+			title: 'Mean Household Income',
+			range: [0, 200000]
+		},
+		yaxis: {
+			title: 'Social Vulnerability Score',
+			range: [0, 1]
+		},
+		mode: 'markers',
+		type: 'scatter',
+		marker: {
+			color: 'blue',
+			size: 10
+		}
+	};
+
+	Plotly.newPlot('scatter', dataScatter, layout);
+
+}).catch(function(error){
+	console.log(error);
+	
+});   
