@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset="utf-8" />
+	<title> Water Shortage Vulnerability</title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12 jumbotron text-center">
+            <h1>Alameda County Social Vulnerability Dashboard</h1>
+            <p>Use the interactive charts and map below to explore the dataset</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="well">
+                <h4>Select x-axis:</h4>
+                <select id="selDatasetx" onchange="optionChanged(this.value)"></select>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="well">
+                <h4>Select y-axis:</h4>
+                <select id="selDatasety" onchange="optionChanged(this.value)"></select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div id="scatter"></div>
+          </div>
+          <div class="col-md-6">
+            <div id="scatter"></div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+              <div id="spacer"></div>
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
+    <!-- Adds the title of our projects and positions the map on the screen -->
+    <!-- <img src="../static/Larger_title.jpg"/>
+    <div style = "position:fixed; left:80px; top:200px;">
+    <div id="map"></div>
+    <div id="scatter"></div>
+     -->
+  
+	
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+  integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+  crossorigin=""></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js"></script>
+  <script src="static/js/logic.js"></script>
+</body>
+</html>
