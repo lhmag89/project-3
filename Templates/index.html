@@ -11,17 +11,52 @@
 </head>
 <body>
 
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12 jumbotron text-center">
+            <h1>Alameda County Social Vulnerability Dashboard</h1>
+            <p>Use the interactive charts and map below to explore the dataset</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="well">
+                <h4>Select x-axis:</h4>
+                <select id="selDatasetx" onchange="optionChanged(this.value)"></select>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="well">
+                <h4>Select y-axis:</h4>
+                <select id="selDatasety" onchange="optionChanged(this.value)"></select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div id="scatter"></div>
+          </div>
+          <div class="col-md-6">
+            <div id="scatter"></div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+              <div id="spacer"></div>
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
     <!-- Adds the title of our projects and positions the map on the screen -->
-    <img src="../static/Larger_title.jpg"/>
+    <!-- <img src="../static/Larger_title.jpg"/>
     <div style = "position:fixed; left:80px; top:200px;">
-    <div id="map" style="width: 800px; height: 600px; float:left;"></div>
-    <div id="scatter" style="float:right;"></div>
-    <div class="well" style="width: 200px; height: 600px; float:right;">
-        <h5>Select GEOID (x):</h5>
-        <select id="selDatasetx" onchange="optionChanged(this.value)"></select>
-        <h5>Select GEOID (y):</h5>
-        <select id="selDatasety" onchange="optionChanged(this.value)"></select>
-    </div>
+    <div id="map"></div>
+    <div id="scatter"></div>
+     -->
   
 	
   <script src="https://d3js.org/d3.v7.min.js"></script>
