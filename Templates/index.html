@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 	<meta charset="utf-8" />
-	<title> Water Shortage Vulnerability</title>
+	<title> Alameda County Social Vulnerability Dashboard</title>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin=""/>
@@ -19,16 +19,22 @@
           </div>
         </div>
         <div class="row">
+            <div class="col-md-3">
+              <div class="well">
+                  <h4>Select y-axis:</h4>
+                  <select id="selDatasety" onchange="optionChanged(this.value)"></select>
+              </div>
+            </div>
           <div class="col-md-3">
             <div class="well">
                 <h4>Select x-axis:</h4>
                 <select id="selDatasetx" onchange="optionChanged(this.value)"></select>
             </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-6">
             <div class="well">
-                <h4>Select y-axis:</h4>
-                <select id="selDatasety" onchange="optionChanged(this.value)"></select>
+                <h4>Select GEOID:</h4>
+                <select id="selDataset" onchange="optionChanged(this.value)"></select>
             </div>
           </div>
         </div>
@@ -37,7 +43,7 @@
             <div id="scatter"></div>
           </div>
           <div class="col-md-6">
-            <div id="scatter"></div>
+            <div id="chartContainer" style="height: 450px; width: 100%"></div>
           </div>
         </div>
         <div class="row">
@@ -51,14 +57,8 @@
           </div>
         </div>
       </div>
-    <!-- Adds the title of our projects and positions the map on the screen -->
-    <!-- <img src="../static/Larger_title.jpg"/>
-    <div style = "position:fixed; left:80px; top:200px;">
-    <div id="map"></div>
-    <div id="scatter"></div>
-     -->
   
-	
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
