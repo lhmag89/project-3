@@ -28,7 +28,6 @@ Back End & Visualizations
 > - A minimum of three unique views present the data.
 > - Multiple user-driven interactions
 
-
 ## Procedure
 
 ### Step 1. Extract and data
@@ -40,11 +39,16 @@ Back End & Visualizations
 >  - Create a SQLite database 
 >  - Pushing inforamtion to SQLite 
 
+![image](https://user-images.githubusercontent.com/116226080/229967799-eb6c9780-ad6c-4e05-b4f5-8b5b5e917ebc.png)
+
 ### Step 2: Run flask app calling SQLite Data base (app.py)
 > - Create data URL
 > - Grab all the data 
 > - jsonyfying all rows 
 > - sneding all the information to a local host
+> - Our Flask app served the data from the SQlite database to two locations: 5000/data & 5000/data_table
+
+![image](https://user-images.githubusercontent.com/116226080/229967888-a6d49595-283b-49c4-9b34-8c67e7cf421c.png)
 
 ### Step 3: HTML to call the JavaScript file 
 > - index.html
@@ -55,6 +59,8 @@ Back End & Visualizations
 
 ### Step 5: Create the initial map 
 > - Integrated a polygon layer which displayed outlines of geogrpahic information divided into townships/ranges within Alameda County. these townships/ranges were identified by a unique GeoID/identifier. 
+
+![image](https://user-images.githubusercontent.com/116226080/229967755-c10a4022-a534-4fd0-97fd-e46185a30f27.png)
 
 ### Step 6: Create an interactive dropdown menu
 > - This dropdown menu enabled interface by allowing the user to select from a drop down list to see the information pertaining to a specific section within Alameda County. 
@@ -70,10 +76,11 @@ Back End & Visualizations
 > - An additional analysis we thought would be valuable was utilizing a scatterplot to compare a few sections of our data. ]
 > - Our scatterplot compared th eSocial Vulnerability and Median Household Income
 
-### Step 9: Create a Bubblechart
+![image](https://user-images.githubusercontent.com/116226080/229967984-38235856-2719-431c-8d8b-53fca50fa9f9.png)
 
 ## Analysis
 > - From the scatter plot and observations we were able to deduce that there is a strong inversely proportionate relationship between median household income and social vulnerability. Meaning that the higher the total household income, typically yielded the lower suscptibility to climate induced issues like wate rshortgages. This was somewhat anticipated as those with financial affluence can generally allocate more resources for development and improvemnt of infrastructure. Some areas were annomalies to this conclusion In several "GeoId's we noticed that the income did NOT relate to the vulnerability. This could be attributed to tourist destinations. 
+> - There were several limitations associated wth ur data. The first limitation is the fact that our data is from 2020, this doesnt factor in the recent record rainfall and snow pact that has had significant effects on water supplies in California, especially Alameda county. An additional limitation is the fact that the census data is voluntarily provided and self reported. Meaning the data regarding mean household income could be incorrect and lead to a false narration. A final limittion we experienced was the copious size of our data. The initial data was over 23000 rows! this was immensely difficult to manage, load and work with. 
 
 ## Software Used:
 
