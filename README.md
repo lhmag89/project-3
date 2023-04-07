@@ -120,15 +120,15 @@ Back End & Visualizations
 > - GitHub
 
 ### Functions used: 
-> DataFrame
-> sort_values
-> Append
-> astype
-> create_engine
-> Execute
-> Return 
-> Select 
-> Jsonify
-> Call
-> Catch
-> pyplot
+> - DataFrame
+> - sort_values
+> - Append
+> - astype
+> - create_engine
+> - Execute
+> - Return 
+> - Select 
+> - Jsonify
+> - Call
+> - Catch
+> - pyplot
