@@ -43,6 +43,8 @@ Back End & Visualizations
 
 ![image](https://user-images.githubusercontent.com/116226080/229967799-eb6c9780-ad6c-4e05-b4f5-8b5b5e917ebc.png)
 
+![image](https://user-images.githubusercontent.com/116226080/229967799-eb6c9780-ad6c-4e05-b4f5-8b5b5e917ebc.png)
+
 ### Step 2: Run flask app calling SQLite Data base (app.py)
 > - Create data URL
 > - Grab all the data 
@@ -76,8 +78,8 @@ Back End & Visualizations
 
 ### Step 8: Create a Scatteplot of the entire county
 > - An additional analysis we thought would be valuable was utilizing a scatterplot to compare a few sections of our data. ]
-> - Our scatterplot compared th eSocial Vulnerability and Median Household Income
-> We eventually expanded this to ve interactive where the user could select the X & Y axis variables to create their own comparative analysis. 
+> - Our scatterplot compared the Social Vulnerability and Median Household Income
+> We eventually expanded this to be interactive where the user could select the X & Y axis variables to create their own comparative analysis. 
 > - The wells for selecting the x and y axis allow the user to choose which factors they want to plot.
 > - Plotly was used to plot the scatter plot based on the user’s choice of axes.
 
@@ -91,10 +93,9 @@ Back End & Visualizations
 
 <img width="546" alt="image" src="https://user-images.githubusercontent.com/116226080/230480570-11a3bf38-ec6b-47b5-8cf2-254d5fd18a73.png">
 
-
 ## Analysis
-> - From the scatter plot and observations we were able to deduce that there is a strong inversely proportionate relationship between median household income and social vulnerability. Meaning that the higher the total household income, typically yielded the lower suscptibility to climate induced issues like wate rshortgages. This was somewhat anticipated as those with financial affluence can generally allocate more resources for development and improvemnt of infrastructure. Some areas were annomalies to this conclusion In several "GeoId's we noticed that the income did NOT relate to the vulnerability. This could be attributed to tourist destinations. 
-> - There were several limitations associated wth ur data. The first limitation is the fact that our data is from 2020, this doesnt factor in the recent record rainfall and snow pact that has had significant effects on water supplies in California, especially Alameda county. An additional limitation is the fact that the census data is voluntarily provided and self reported. Meaning the data regarding mean household income could be incorrect and lead to a false narration. A final limittion we experienced was the copious size of our data. The initial data was over 23000 rows! this was immensely difficult to manage, load and work with. 
+> - From the scatter plot and observations we were able to deduce that there is a strong inversely proportionate relationship between median household income and social vulnerability. Meaning that the higher the total household income, typically yielded the lower susceptibility to climate induced issues like water shortgages. This was somewhat anticipated as those with financial affluence can generally allocate more resources for development and improvemnt of infrastructure. Some areas were annomalies to this conclusion In several "GeoId's" we noticed that the income did NOT relate to the vulnerability. This could be attributed to tourist destinations. 
+> - There were several limitations associated with our data. The first limitation is the fact that our data is from 2020, this doesnt factor in the recent record rainfall and snow pact that has had significant effects on water supplies in California, especially Alameda county. An additional limitation is the fact that the census data is voluntarily provided and self reported. Meaning the data regarding mean household income could be incorrect and lead to a false narration. A final limittion we experienced was the copious size of our data. The initial data was over 23000 rows! this was immensely difficult to manage, load and work with. 
 
 ## Limitations
 > - Antiquated: The data collected ranges from 2015-2019 (indicators from the American Communities Survey) and 2020 (Census Block Groups), so they may not be as accurate today.
@@ -103,6 +104,7 @@ Back End & Visualizations
 ## Further Development/ Next Steps
 > - Other Interactions: Further visualizations to add to our data could be made by linking plots together. For example, being able to click on a data point in the scatter plot and making it highlight the corresponding polygon on the map.  
 > Statistical Analysis: Likewise, we can run statistical tests (such as linear regression) with the data to determine if there is a correlation between socioeconomic factors and Water Shortage Social Vulnerability.
+
 
 ## Software Used:
 

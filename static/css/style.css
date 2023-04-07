@@ -14,7 +14,6 @@ body,
 }
 
 .container {
-/* background-image: linear-gradient(#ADD8E6, rgb(255, 255, 255)); */
 background-image: linear-gradient(rgb(0, 0, 0), rgb(87, 87, 112));
 }
 .legend {

@@ -1,18 +1,16 @@
-// ----------IN CASE WE WANT A GEOID DROPDOWN -----------
-// d3.json('/data_table').then(function(data1){
-// 	// Get subject ID's and populate the dropdown
+
+d3.json('/data_table').then(function(data1){
+	// Get GEOID's and populate the dropdown
     
-//     for (let i=0; i<data1.length; i++){
-//         let dropdownListx = d3.select("#selDatasetx");
-// 		let dropdownListy = d3.select("#selDatasety");
-// 		let geoID=data1[i][7];
-// 		dropdownListx.append("option").text(geoID);
-// 		dropdownListy.append("option").text(geoID);
-//         };
+    for (let i=0; i<data1.length; i++){
+        let dropdownList = d3.select("#selDataset");
+		let geoID=data1[i][7];
+		dropdownList.append("option").text(geoID);
+        };
  
-// });
-//--------------------------------------------------------
-// Add data columns to dropdown
+});
+
+// Add data column names to dropdown
 let columns = ["Social Vulnerability Score", "Mean Household Income", "Percent Under Poverty Line",
 				"Per Capita Income", "Percent No HS Diploma"];
 for (let i=0; i<columns.length; i++){
@@ -25,7 +23,7 @@ for (let i=0; i<columns.length; i++){
 //Call data
 d3.json('http://localhost:5000/data').then(function(data){
 	
-// Starting point. The center of California
+// Starting point. The center of Alameda
 	var myMap=L.map("map", {
 	    center: [37.595794, -121.889489],
 	    zoom: 10,
@@ -54,7 +52,7 @@ d3.json('http://localhost:5000/data').then(function(data){
 		let vulScore = data1[i][1];
 		let tractColor = getColor(vulScore);
 
-//Adds the ploygons to the map. 
+//Adds the ploygons to the map with Popups. 
 		L.polygon(change_order_of_cords, {color: tractColor}).bindPopup(`<h3>GEOID: ${data1[i][7]}</h3><h5>Tract: ${data1[i][8]}</h5><hr><p>Social Vulnerability Score: ${data1[i][1]}</p>
 		<p>% Below Poverty: ${data1[i][4]}</p><p>% No High School Diploma: ${data1[i][6]}</p><p>Mean Household Income: ${data1[i][2]}</p>
 		<p>Per Capita Income: ${data1[i][5]}</p>`).addTo(myMap);});
@@ -98,6 +96,7 @@ d3.json('/data_table').then(function(data1){
 	var poverty = [];
 	var perCapita= [];
 	var noHSDiploma = [];
+	var geoID = [];
 	var text = [];
 	for (let i=0; i<data1.length; i++){
 		let vulScore = data1[i][1];
@@ -105,12 +104,14 @@ d3.json('/data_table').then(function(data1){
 		let percentPoverty = data1[i][4];
 		let perCapitaIncome = data1[i][5];
 	 	let percentNoHS = data1[i][6];
+		let geoidentity = data1[i][7];
 		let hover = `GEOID: ${data1[i][7]}`;
 		householdIncome.push(meanIncome);	
 		vScore.push(vulScore);
 		poverty.push(percentPoverty);
 		perCapita.push(perCapitaIncome);	
-		noHSDiploma.push(percentNoHS);
+		noHSDiploma.push(percentNoHS);	
+		geoID.push(geoidentity);
 		text.push(hover);
 	
 	};
@@ -216,7 +217,72 @@ d3.json('/data_table').then(function(data1){
 
 	Plotly.newPlot('scatter', dataScatter, layout);
      };
-}).catch(function(error){
+	 // Create Bar chart for tract with initial data
+	 var chart = new CanvasJS.Chart("chartContainer", {
+        title:{
+            text: `Tract ${geoID[0]} Summary`          
+        },
+		axisY:{
+			minimum: 0,
+			maximum: 1,
+			interval: 0.1,
+			}   ,
+        data: [              
+        {
+            type: "column",
+            dataPoints: [
+                { label: "Vulnerability Score",  y: vScore[0]},
+                { label: "% Below Poverty Line", y: poverty[0]},
+                { label: "% No HS Diploma", y: noHSDiploma[0]}
+            ]
+        }
+        ]
+    });
+    chart.render();
+	// Call updateView() when a change takes place to the DOM
+	d3.selectAll("#selDataset").on("change", updateBars);
+
+	// Create function that updates the views when new selection is made from the dropdown
+	function updateBars() {
+ 	let dropdownList = d3.select("#selDataset");
+  	// Get current value on dropdown
+  	var selectedGeo = dropdownList.property("value");
+  	// Function to check GEOID and grab data for that tract 
+	function getGeoInfo(checkID) {
+  		for (let i = 0; i < geoID.length; i++) {
+    		if  (geoID[i] == checkID) {
+        		console.log(checkID)
+				return [vScore[i], poverty[i], noHSDiploma[i], `Tract ${geoID[i]} Summary`];
+      		}
+   		}
+	}
+	// Update the bar chart based on dropdown's GEOID
+    var chart = new CanvasJS.Chart("chartContainer", {
+        title:{
+            text: getGeoInfo(selectedGeo)[3]             
+        },
+		axisY:{
+			minimum: 0,
+			maximum: 1,
+			interval: 0.1,
+			},
+        data: [              
+        {
+            type: "column",
+            dataPoints: [
+                { label: "Vulnerability Score",  y: getGeoInfo(selectedGeo)[0]},
+                { label: "% Below Poverty Line", y: getGeoInfo(selectedGeo)[1]},
+                { label: "% No HS Diploma", y: getGeoInfo(selectedGeo)[2]}
+            ]
+        }
+        ]})
+		chart.render();
+    };
+	
+    
+}
+
+).catch(function(error){
 	console.log(error);
 	
 });   
